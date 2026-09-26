@@ -9,13 +9,11 @@ def home():
         "message": "OceanShield Monitoring Platform is running"
     }
 
-
 @app.get("/health")
 def health():
     return {
         "status": "healthy"
     }
-
 
 @app.get("/telemetry")
 def telemetry():
