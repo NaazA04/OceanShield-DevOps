@@ -1,7 +1,8 @@
+from prometheus_fastapi_instrumentator import Instrumentator
 from fastapi import FastAPI
 
 app = FastAPI(title="OceanShield Monitoring Platform")
-
+Instrumentator().instrument(app).expose(app)
 
 @app.get("/")
 def home():
