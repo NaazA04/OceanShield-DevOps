@@ -28,3 +28,15 @@ jobs:
 
       - name: Build Docker image
         run: docker build -t oceanshield-api .
+
+      - name: Run Docker container
+        run: docker run -d -p 8000:8000 --name oceanshield-test oceanshield-api
+
+      - name: Health check
+        run: |
+          sleep 5
+          curl --fail http://localhost:8000/health
+
+      - name: Stop Docker container
+        if: always()
+        run: docker stop oceanshield-test
