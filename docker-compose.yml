@@ -1,0 +1,6 @@
+services:
+  api:
+    build: .
+    container_name: devops-api
+    ports:
+      - "8001:8000"
